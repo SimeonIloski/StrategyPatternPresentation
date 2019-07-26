@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCard {
-    public List<Item> itemGroup=new ArrayList<Item>();
-    public void addItem(Item item){
+    private List<Item> itemGroup=new ArrayList<Item>();
+    void addItem(Item item){
         itemGroup.add(item);
     }
     public void removeItem(Item item){
         itemGroup.remove(item);
     }
-    public int calculateTotalPrice(){
+    private int calculateTotalPrice(){
         int totalPrice=0;
         for (Item item:itemGroup)
         {
@@ -18,7 +18,7 @@ public class ShoppingCard {
         return totalPrice;
     }
 
-    public void pay(PaymentStrategy paymentStrategy){
+    void pay(PaymentStrategy paymentStrategy){
         paymentStrategy.pay(calculateTotalPrice());
     }
 }
